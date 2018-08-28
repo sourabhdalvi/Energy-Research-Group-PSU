@@ -1,0 +1,14 @@
+*_checkpoints
+*.jl.cov
+*.jl.*.cov
+*.jl.mem
+.DS_store
+*.R
+*.PNG
+*.csv
+*.ipynb
+*.log
+*.m
+*.RAW
+*.zip
+*.json
