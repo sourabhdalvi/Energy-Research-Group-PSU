@@ -1,7 +1,9 @@
 # Energy-Research-Group-PSU
-System Setup Repository for Penn State Energy Research Group (Dr.Mort Webster)
+#### System Setup Repository for Penn State Energy Research Group
 
-1. First Step is to install Miniconda which works as a package manager and allows user to create seperate environments for different projects
+---
+
+#### 1. First Step is to install Miniconda which works as a package manager and allows user to create seperate environments for different projects
 ```bash
 [spd13@comp-ic-0014 ~]$ cd Downloads
 
@@ -19,7 +21,9 @@ Please, press ENTER to continue
 ...
 ```
 
-2. The Final Step before installation is to specify the installtion location, its better to install in your work directory
+---
+
+#### 2. The Final Step before installation is to specify the installtion location, its better to install in your work directory
 ```bash
 Miniconda3 will now be installed into this location:
 /storage/home/spd13/miniconda3
@@ -31,12 +35,15 @@ Miniconda3 will now be installed into this location:
 [/storage/home/spd13/miniconda3] >>> /storage/work/spd13/miniconda3
 
 ```
+---
 
-3. Once we have Miniconda setup, first we create a new environment for Julia-0.6 with the name jl-0.6 and specifying the version of julia we need 
+#### 3. Once we have Miniconda setup, first we create a new environment for Julia-0.6 with the name jl-0.6 and specifying the version of julia we need 
 ```bash
 [spd13@comp-ic-0014 ~]$ conda create -n jl-0.6 julia=0.6
 ```
-4. Next we need to setup/install solvers
+---
+
+#### 4. Next we need to setup/install solvers
 
     - CPLEX # already available in ACI
         - Load : module load cplex
@@ -74,7 +81,10 @@ Miniconda3 will now be installed into this location:
      - GLPK, CLP, CBC
          - All can be installed in Julia 
     
-4. Actiavte the new env, to access the julia 
+---
+
+#### 4. Actiavte the new env, to access the julia 
+
 ```bash
 [spd13@comp-ic-0014 ~]$ source activate jl-0.6
 
@@ -93,8 +103,9 @@ Miniconda3 will now be installed into this location:
 
 julia> 
 ```
+---
 
-5. We are now ready to add packages, for the Solvers and our Modeling Language
+#### 5. We are now ready to add packages, for the Solvers and our Modeling Language
 ```julia
 julia> Pkg.init() # This is only need for the first time you run julia
 
@@ -112,8 +123,9 @@ julia>  Pkg.add("CBC")
 
 julia>  exit()
 ```
+---
 
-6. Currently Julia hosts a variety of solvers and modeling packages with you can solve 
+#### 6. Currently Julia hosts a variety of solvers and modeling packages with you can solve 
     - MILP
     - NLP
     - Convex programs
@@ -124,7 +136,9 @@ julia>  exit()
     - Power cone programs
     All this is available in [JuliaOpt](https://github.com/JuliaOpt) 
     
-7. Try a example problem in JuMP
+---  
+  
+#### 7. Try a example problem in JuMP
 
 ```bash
 (jl-0.6) [spd13@comp-ic-0014 ~]$ julia -e 'include("/gpfs/group/mdw18/default/setup/gurobi_example.jl")'
