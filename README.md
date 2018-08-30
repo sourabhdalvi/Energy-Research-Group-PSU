@@ -46,17 +46,20 @@ Miniconda3 will now be installed into this location:
 #### 4. Next we need to setup/install solvers
 
     - CPLEX # already available in ACI
-        - Load : module load cplex
+        - Load :
+```bash
+module load cplex
+```
         - Direct Julia to CPLEX, next line should only be exceuted once
-        ```bash
+```bash
           [spd13@comp-ic-0014 ~]$ export LD_LIBRARY_PATH="/opt/aci/sw/cplex/12.8.0/cplex/bin/x86-64_linux":$LD_LIBRARY_PATH >> ~/.bash_profile
           
           [spd13@comp-ic-0014 ~]$ CPLEX_STUDIO_BINARIES=/opt/aci/sw/cplex/12.8.0/cplex/bin/x86-64_linux julia -e 'Pkg.add("CPLEX"); Pkg.build("CPLEX")'
-        ```
+```
         - Drawback only supported till Julia-0.6, JuMP-0.18; Under development for Julia-1.0, JuMP-0.19, MOI(MathOptInterface)
     - Gurobi # needs installing plus registration for a license 
         - Copy gurobi8.0.1_linux64.tar.gz from the group directory and install gurobi in your work directory
-        ```bash
+```bash
           [spd13@comp-ic-0014 ~]$ cp /gpfs/group/mdw18/default/setup/gurobi8.0.1_linux64.tar.gz ~/work/
         
           [spd13@comp-ic-0014 ~]$ cd ~/work && tar xzf gurobi8.0.1_linux64.tar.gz
@@ -70,14 +73,13 @@ Miniconda3 will now be installed into this location:
           [spd13@comp-ic-0014 ~]$ export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib" >> ~/.bashrc
 
           [spd13@comp-ic-0014 ~]$ export GRB_LICENSE_FILE="/storage/home/spd13/gurobi.lic" >> ~/.bashrc
-
-        ```
+```
         -  Once you get your License, activate gurobi and save the License in the default location
-        ```bash
+```bash
           [spd13@comp-ic-0014 ~]$ grbgetkey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
           
           [spd13@comp-ic-0014 ~]$ export GRB_LICENSE_FILE="/storage/home/spd13/gurobi.lic" >> ~/.bashrc
-        ```
+```
      - GLPK, CLP, CBC
          - All can be installed in Julia 
     
