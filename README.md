@@ -45,7 +45,7 @@ Miniconda3 will now be installed into this location:
 
 #### 4. Next we need to setup/install solvers
 
-    * CPLEX # already available in ACI
+    ..* CPLEX # already available in ACI
         * Load CPLEX library:
 ```bash
 module load cplex
